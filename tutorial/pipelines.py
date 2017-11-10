@@ -13,5 +13,6 @@ table = db.macapps
 class TutorialPipeline(object):
     def process_item(self, item, spider):
         dict_item = dict(item)
-        table.insert_one(dict_item)
+        if table.find(dict_item).count() == 0:
+            table.insert_one(dict_item)
         return item
