@@ -32,9 +32,9 @@ class QuotesSpider(scrapy.Spider):
                 yield scrapy.Request(url=link, callback=self.parse_detail, meta={'item': item})
             except:
                 pass
-        next_page = 'https://cmacapps.com/page/{}/'.format(self.count)
-        if next_page:
-            yield scrapy.Request(url=next_page, callback=self.parse)
+        # next_page = 'https://cmacapps.com/page/{}/'.format(self.count)
+        # if next_page:
+        #     yield scrapy.Request(url=next_page, callback=self.parse)
 
     def parse_detail(self, response):
 
