@@ -15,4 +15,5 @@ class TutorialPipeline(object):
         dict_item = dict(item)
         if table.find(dict_item).count() == 0:
             table.insert_one(dict_item)
+            print(item)
         return item
