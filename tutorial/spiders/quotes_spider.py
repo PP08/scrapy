@@ -60,7 +60,8 @@ class QuotesSpider(scrapy.Spider):
             if screenshots:
                 item["screenshots"] = screenshots.split(', ')[-1].split(' ')[0]
             description = response.xpath("//div[@id='description']").extract_first()
-            description = re.sub(r'https://cdn.cmacapps.com', 'http://127.0.0.1:8080/upload/q_100/https://cdn.cmacapps.com', description)
+            if description:
+                description = re.sub(r'https://cdn.cmacapps.com', 'http://127.0.0.1:8080/upload/q_100/https://cdn.cmacapps.com', description)
             item["description"] = description
             item["download_link"] = response.xpath("//p[contains(@class, 'p1')]/a/@href").extract()
             yield item
