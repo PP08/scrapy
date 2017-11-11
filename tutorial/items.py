@@ -21,3 +21,4 @@ class MacappItem(scrapy.Item):
     description = scrapy.Field()
     rating = scrapy.Field()
     download_link = scrapy.Field()
+    slug = scrapy.Field()
